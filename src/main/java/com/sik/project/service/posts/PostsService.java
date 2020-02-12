@@ -10,13 +10,16 @@ package com.sik.project.service.posts;
 
 import com.sik.project.domain.posts.Posts;
 import com.sik.project.domain.posts.PostsRepository;
+import com.sik.project.web.dto.PostsListResponseDto;
 import com.sik.project.web.dto.PostsResponseDto;
 import com.sik.project.web.dto.PostsSaveRequestDto;
 import com.sik.project.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @RequiredArgsConstructor    //final이 선언된 모든 필드를 인자값으로 하는 생성자를 롬복의 @RequiredArgsConstructor가 대신 생성.
@@ -35,6 +38,13 @@ public class PostsService {
         posts.update(requestDto.getTitle(), requestDto.getContent());
 
         return id;
+    }
+
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAllDesc(){
+        return postsRepository.findAllDesc().stream()
+                .map(PostsListResponseDto::new) //.map(posts -> new PostsListResponseDto(posts))
+                .collect(Collectors.toList());
     }
 
     public PostsResponseDto findById(Long id){
