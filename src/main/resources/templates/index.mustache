@@ -20,14 +20,14 @@
             </tr>
         </thead>
         <tbody id="tbody">
-        {#posts}}  <!--posts라는 List를 순회 한다 Java의 for문-->
+        {{#posts}}  <!--posts라는 List를 순회 한다 Java의 for문-->
         <tr>
             <td>{{id}}</td>
             <td>{{title}}</td>
             <td>{{author}}</td>
             <td>{{modifiedDate}}</td>
         </tr>
-        {/posts}}
+        {{/posts}}
         </tbody>
     </table>
     <!--/ 목록 출력 영역-->
