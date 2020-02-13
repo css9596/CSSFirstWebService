@@ -27,6 +27,9 @@ var index = {
     }
 };
 
+index.init();
+
+
 var main={
     init : function(){
         var _this = this;
@@ -58,9 +61,8 @@ var main={
         }).fail(function(error){
             alert(JSON.stringify(error));
         });
-    };
+    }
 
 }
 
 main.init();
-index.init();
