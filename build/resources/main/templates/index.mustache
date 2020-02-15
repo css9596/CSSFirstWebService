@@ -1,14 +1,21 @@
 {{>layout/header}}
     <h1>스프링 부트로 시작하는 웹 서비스</h1>
-    <!-- 글 등록 -->
+    <!-- 로그인 기능 영역 -->
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-6">
                 <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+                {{#userName}}<!--if문을 제공하지 않아 ture, false만 판단. 값이 있다면.-->
+                    Logged in as: <span id="user">{{userName}}</span>
+                    <a href="/logout" class="btn btn-info active" role="button">Logout</a>
+                {{/userName}}
+                {{^userName}}<!--값이 없다면-->
+                    <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
+                {{/userName}}
             </div>
         </div>
     </div>
-    <!--/ 글 등록 -->
+    <!--/ 로그인 기능 영역 -->
     <!-- 목록 출력 영역 -->
     <table class="table table-horizontal table-bordered">
         <thead class="thead-strong">

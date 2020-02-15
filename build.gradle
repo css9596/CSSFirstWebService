@@ -40,4 +40,5 @@ dependencies {
     compile('com.h2database:h2')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     compile('org.springframework.boot:spring-boot-starter-mustache')
+    compile('org.springframework.boot:spring-boot-starter-oauth2-client')//소셜 로그인 등 클라이언트 입장에서 소셜 구현시 필요한 의존성
 }
