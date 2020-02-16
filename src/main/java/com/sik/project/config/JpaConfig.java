@@ -6,16 +6,12 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.sik.project;
+package com.sik.project.config;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
-//@EnableJpaAuditing  // JPA Auditing 활성화
-@SpringBootApplication
-public class Application {
-    public static void main(String[] args){
-        SpringApplication.run(Application.class, args);
-    }
+@Configuration
+@EnableJpaAuditing
+public class JpaConfig {
 }
